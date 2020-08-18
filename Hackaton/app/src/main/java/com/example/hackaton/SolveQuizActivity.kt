@@ -1,5 +1,7 @@
 package com.example.hackaton
 
+import android.app.AlertDialog
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -20,7 +22,7 @@ class SolveQuizActivity : AppCompatActivity() {
 
         val quizList = ArrayList<Quiz>()
 
-        for (i in 0 until 10) {
+        for (i in 0 until 5) {
             quizList.add(Quiz("i번째 퀴즈", i))
         }
 
@@ -28,6 +30,28 @@ class SolveQuizActivity : AppCompatActivity() {
         val solveQuizAdapter = SolveQuizAdapter(quizList, LayoutInflater.from(this))
         solve_quiz_recyclerview.adapter = solveQuizAdapter
         solve_quiz_recyclerview.layoutManager = LinearLayoutManager(this)
+
+
+
+        solve_quiz_finish.setOnClickListener {
+            for (i in 0 until 5) {
+                Log.d("msgg",  ""+quizList[i].answer)
+            }
+
+            val builder = AlertDialog.Builder(this)
+            val dialogView = layoutInflater.inflate(R.layout.dialog_view, null)
+            val dialogScore = dialogView.findViewById<TextView>(R.id.dialog_score)
+
+
+            builder.setView(dialogView)
+                .setPositiveButton("ADD") { dialog, i ->
+                    //val date = dialogDate.text.toString()
+                    //val content = dialogContent.text.toString()
+                    //planList.add(Plan(date, content))
+                }
+                .setNegativeButton("BACK", null)
+                .show()
+        }
 
     }
 }
@@ -47,21 +71,28 @@ class SolveQuizAdapter (
             noBtn = itemView.findViewById(R.id.solve_quiz_no)
         }
 
+
         // yesBtn 누르면 1, noBtn 누르면 0으로 변경
         fun set(quiz: Quiz, index: Int) {
             yesBtn.setOnClickListener {
                 if (quiz.answer != 1) {
                     quiz.answer = 1
+                    yesBtn.setBackgroundColor(Color.GRAY)
+                    noBtn.setBackgroundColor(Color.BLACK)
                 } else {
                     quiz.answer = -1
+                    yesBtn.setBackgroundColor(Color.BLACK)
                 }
             }
 
             noBtn.setOnClickListener {
                 if (quiz.answer != 0) {
                     quiz.answer = 0
+                    yesBtn.setBackgroundColor(Color.BLACK)
+                    noBtn.setBackgroundColor(Color.GRAY)
                 } else {
                     quiz.answer = -1
+                    yesBtn.setBackgroundColor(Color.BLACK)
                 }
             }
         }
