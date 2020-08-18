@@ -27,7 +27,7 @@ class LoginActivity : AppCompatActivity() {
 
         pw.setOnEditorActionListener(password_listener)
 
-        login_btn.setOnClickListener {
+        login.setOnClickListener {
             val intent= Intent(this@LoginActivity, CreateQuizActivity::class.java)
             startActivity(intent)
         }
