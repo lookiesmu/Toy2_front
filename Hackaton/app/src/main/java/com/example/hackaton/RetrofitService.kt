@@ -12,7 +12,7 @@ interface RetrofitService {
    @POST("/login")
     fun createStudentEasy(
     @Body person : User
-    ):Call<User>
+    ): Call<User>
 
     @FormUrlEncoded
     fun register(
