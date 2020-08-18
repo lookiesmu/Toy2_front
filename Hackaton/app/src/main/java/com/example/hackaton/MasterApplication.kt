@@ -16,7 +16,7 @@ class MasterApplication:Application() {
     override fun onCreate() {
         super.onCreate()
 
-        Stetho.initializeWithDefaults(this)
+        //Stetho.initializeWithDefaults(this)
         createRetrofit()
         //chrome://inspect/#devices
     }
@@ -31,7 +31,7 @@ class MasterApplication:Application() {
                 //let : null이 아니면 괄호 안 내용을 실행
                 getUserToken()?.let {token ->
                     val requeset=original.newBuilder()
-                        .header("Authorization","token "+token)
+                        .header("Authorization", "token $token")
                         .build()
                     //개조한걸 진행 ( 내보내는 것 )
                     it.proceed(requeset)
@@ -42,15 +42,15 @@ class MasterApplication:Application() {
             }
         }
 
-        val client= OkHttpClient.Builder()
-            .addInterceptor(header)
-            .addNetworkInterceptor(StethoInterceptor())
-            .build()
+//        val client= OkHttpClient.Builder()
+//            .addInterceptor(header)
+//            .addNetworkInterceptor(StethoInterceptor())
+//            .build()
 
         val retrofit= Retrofit.Builder()
-            .baseUrl("http://mellowcode.org/")
+            .baseUrl("http://ec2-13-209-122-152.ap-northeast-2.compute.amazonaws.com:8080/")
             .addConverterFactory(GsonConverterFactory.create())
-            .client(client)
+//            .client(client)
             .build()
 
         service=retrofit.create(RetrofitService::class.java)

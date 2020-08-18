@@ -1,29 +1,31 @@
 package com.example.hackaton
 
+import android.provider.ContactsContract
+import com.google.gson.JsonObject
 import retrofit2.Call
 import retrofit2.http.*
+import org.json.JSONObject
 
 interface RetrofitService {
-    //baseURL뒷부분만 적어주면 된다.
-    @GET("/login")
-    //retrofit2 의 Call<>안에 넣어준다.
-    fun getList(): Call<ArrayList<User>>
 
-   @POST("/login")
-    fun createStudentEasy(
-    @Body person : User
-    ):Call<User>
+//    @Headers("content-type: application/json")
+//    @POST("login")
+//    fun login(
+//        @Body params : HashMap<String, String>
+//    ):Call<User>
 
-    @FormUrlEncoded
+    @Headers("content-type: application/json")
+    @POST("login")
     fun register(
-        @Field("username")username:String,
-        @Field("password1")password1:String,
-        @Field("password2")password2:String
+        @Body params: HashMap<String, String>   // nickname, password
     ): Call<User>
 
-    @FormUrlEncoded
-    fun login(
-        @Field("username")username:String,
-        @Field("password")password:String
-    ): Call<User>
+//    @FormUrlEncoded
+//    @POST("/login")
+//    fun login(
+//        @Field("nickname")nickname:String,
+//        @Field("password")password:String
+//    ): Call<User>
+//
+
 }
