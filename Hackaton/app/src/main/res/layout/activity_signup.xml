@@ -1,9 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".SignupActivity">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="회원가입"
+        android:textSize="50dp"
+        android:layout_gravity="center"
+        android:layout_margin="30dp"/>
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="id"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <EditText
+                android:id="@+id/sign_id"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:background="@drawable/round"
+                android:layout_marginBottom="16dp"
+                android:layout_marginRight="16dp"/>
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:background="@drawable/round_button"
+                android:text="중복확인"
+                android:textColor="#ffffff"/>
+        </LinearLayout>
+    </LinearLayout>
+<LinearLayout
+    android:layout_width="350dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_gravity="center">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="password"
+        android:textSize="20dp"
+        android:textStyle="bold"/>
+    <EditText
+        android:id="@+id/sign_pw"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:background="@drawable/round"
+        android:layout_marginBottom="16dp"/>
+</LinearLayout>
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:layout_marginBottom="100dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="check password"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
+        <EditText
+            android:id="@+id/sign_pw2"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:background="@drawable/round"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/sign_btn"
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        android:text="가입하기"
+        android:textSize="20dp"
+        android:layout_gravity="center_horizontal|bottom"
+        android:background="@drawable/round_button"/>
+
+</LinearLayout>
