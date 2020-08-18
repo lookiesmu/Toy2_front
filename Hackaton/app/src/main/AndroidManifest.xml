@@ -11,7 +11,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-<<<<<<< HEAD
         <activity android:name=".CreateQuizActivity"></activity>
         <activity android:name=".SolveQuizActivity">
             <intent-filter>
@@ -20,12 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-=======
         <activity android:name=".NicknameActivity"></activity>
-        <activity android:name=".CreateQuizActivity" />
-        <activity android:name=".SolveQuizActivity" />
->>>>>>> upstream/dev
-        <activity android:name=".RankActivity" />
         <activity android:name=".MyifoActivity" />
         <activity android:name=".SignupActivity" />
         <activity android:name=".LoginActivity" />
