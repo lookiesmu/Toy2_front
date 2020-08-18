@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.hackaton">
-
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -11,21 +10,25 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:theme="@style/AppTheme">
-        <activity android:name=".CreateQuizActivity"></activity>
-        <activity android:name=".MyifoActivity"></activity>
-        <activity android:name=".SignupActivity"></activity>
-        <activity android:name=".LoginActivity" >
+
+        <activity android:name=".NicknameActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
-        <activity android:name=".SolveQuizActivity"></activity>
+        <activity android:name=".CreateQuizActivity" />
+        <activity android:name=".SolveQuizActivity" />
+        <activity android:name=".MyifoActivity" />
+        <activity android:name=".SignupActivity" />
+        <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity">
         </activity>
-        <activity android:name=".NicknameActivity"></activity>
     </application>
 
 </manifest>
