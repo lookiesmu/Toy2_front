@@ -25,6 +25,7 @@ class SolveQuizActivity : AppCompatActivity() {
 
         val quizList = ArrayList<Quiz>()
 
+        // 예시
         for (i in 0 until 5) {
             quizList.add(Quiz("i번째 퀴즈", i))
         }
