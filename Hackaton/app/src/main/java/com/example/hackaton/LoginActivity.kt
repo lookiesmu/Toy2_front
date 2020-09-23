@@ -30,40 +30,59 @@ class LoginActivity : AppCompatActivity() {
 
         sign.setOnClickListener {
             startActivity(
-                Intent(this@LoginActivity, MyifoActivity::class.java)
+                Intent(this@LoginActivity, SignupActivity::class.java)
             )
         }
 
-        login_button11.setOnClickListener {
+        login_button.setOnClickListener {
             val nickname = id.text.toString()
             val password = pw.text.toString()
-            val body = HashMap<String, String>()
-            body.put("nickname", nickname)
-            body.put("password", password)
-            (application as MasterApplication).service.register(
-                body
-            ).enqueue(object : Callback<User>{
-                override fun onFailure(call: Call<User>, t: Throwable) {
-                    Log.d("user", call.toString(), t)
-                    Toast.makeText(this@LoginActivity, "로그인에 실패했습니다", Toast.LENGTH_LONG).show()
-                }
 
-                override fun onResponse(call: Call<User>, response: Response<User>) {
-                    if (response.isSuccessful) {
-                        val user = response.body()
-                        val token = response.headers().get("Authorization").toString()
-                        Log.d("user", token)
-                        Log.d("User", user.toString())
-                        saveUserToken(token, this@LoginActivity)
-                        (application as MasterApplication).createRetrofit()
-                        Toast.makeText(this@LoginActivity, "환영합니다!", Toast.LENGTH_LONG).show()
-                        startActivity (
-                            // Intent(this@SignInActivity, SearchActivity::class.java)
-                            Intent(this@LoginActivity, MyifoActivity::class.java)
-                        )
+            if(nickname==""){
+                Toast.makeText(this@LoginActivity, "아이디를 입력해주세요", Toast.LENGTH_LONG).show()
+            }else if(password==""){
+                Toast.makeText(this@LoginActivity, "비밀번호를 입력해주세요", Toast.LENGTH_LONG).show()
+            }else{
+                val body = HashMap<String, String>()
+                body.put("nickname", nickname)
+                body.put("password", password)
+
+
+                (application as MasterApplication).service.login(
+                    body
+                ).enqueue(object : Callback<Test>{
+                    override fun onFailure(call: Call<Test>, t: Throwable) {
+                        Toast.makeText(this@LoginActivity, "로그인에 실패했습니다", Toast.LENGTH_LONG).show()
                     }
-                }
-            })
+
+                    override fun onResponse(call: Call<Test>, response: Response<Test>) {
+                        if (response.isSuccessful) {
+                            val user = response.body()
+
+                            Log.d("test11",user?.nickname)
+                            val token = response.headers().get("X-AUTH-TOKEN").toString()
+
+                            Log.d("user", user.toString())
+
+                            if(token=="null"){
+                                Toast.makeText(this@LoginActivity, "아이디, 비밀번호가 틀립니다.", Toast.LENGTH_LONG).show()
+                            }
+                            else{
+                                saveUserToken(token, this@LoginActivity)
+                                (application as MasterApplication).createRetrofit()
+                                //username을 반환하는지 test
+                                Toast.makeText(this@LoginActivity, "환영합니다!" + "${user?.nickname}", Toast.LENGTH_LONG).show()
+                                startActivity (
+                                    // Intent(this@SignInActivity, SearchActivity::class.java)
+                                    Intent(this@LoginActivity, MyifoActivity::class.java)
+                                )
+                            }
+
+                        }
+                    }
+                })
+            }
+
 
         }
     }
@@ -72,6 +91,6 @@ class LoginActivity : AppCompatActivity() {
         val sp = activity.getSharedPreferences("login_token", Context.MODE_PRIVATE)
         val editor = sp.edit()
         editor.putString("login_token", token)
-        editor.commit()
+        editor.apply()
     }
 }
