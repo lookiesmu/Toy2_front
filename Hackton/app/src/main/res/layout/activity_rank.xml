@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background"
+    android:padding="15dp"
+    android:gravity="center"
+    tools:context=".RankActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="12dp">
+
+        <TextView
+            android:id="@+id/rank_nick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="nickname"
+            android:textSize="32dp"
+            android:textStyle="bold"
+            android:textColor="@color/textColor" />
+
+        <TextView
+            android:id="@+id/rank_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="님의 퀴즈 순위"
+            android:textSize="32dp"
+            android:textColor="@color/textColor" />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rank_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:gravity="center|bottom">
+
+        <ImageView
+            android:id="@+id/search_btn2"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/search_btn_no"/>
+
+        <ImageView
+            android:id="@+id/search_next_btn2"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/search_next_yes"/>
+
+    </LinearLayout>
+
+</LinearLayout>
