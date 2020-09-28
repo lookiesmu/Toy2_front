@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="10dp"
+    android:background="@color/background">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="QUIZ 점수 두둥"
+        android:textSize="20dp"
+        android:textColor="#000000"
+        android:layout_marginTop="40dp"/>
+
+    <TextView
+        android:id="@+id/solve_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="score"
+        android:textSize="50dp"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="만족하십니까?"
+        android:textSize="20dp"
+        android:textColor="#000000"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:id="@+id/solve_dialog_btn"
+        android:background="@drawable/solve_btn_shape"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="20dp"
+        android:text="랭킹 확인하러 가기"/>
+
+</LinearLayout>
