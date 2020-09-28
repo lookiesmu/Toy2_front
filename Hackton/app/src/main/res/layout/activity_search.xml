@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background"
+    android:padding="15dp"
+    android:gravity="center"
+    tools:context=".SearchActivity">
+
+    <TextView
+    android:id="@+id/search_text"
+    android:layout_width="wrap_content"
+    android:layout_height="0dp"
+    android:layout_weight="2"
+    android:gravity="center"
+    android:text="QUIZzzz"
+    android:textSize="60dp"
+    android:textColor="@color/textColor" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="풀고 싶은 퀴즈 주인의 닉네임을 입력하세요"
+        android:textSize="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="8dp"
+        android:layout_gravity="left"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/search_editText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:hint="Search Nickname"
+            android:background="@drawable/quiz_shape"
+            android:padding="20dp"/>
+
+        <Button
+            android:id="@+id/search_enter_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="검색"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/solve_btn_shape"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:gravity="center|bottom">
+
+        <ImageView
+            android:id="@+id/search_btn"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/search_btn_yes"/>
+
+        <ImageView
+            android:id="@+id/search_next_btn"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/search_next_no"/>
+
+    </LinearLayout>
+
+</LinearLayout>
